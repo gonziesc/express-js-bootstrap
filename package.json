@@ -9,6 +9,8 @@
   "scripts": {
     "cover": "NODE_ENV=testing istanbul cover ./node_modules/mocha/bin/_mocha --compilers js:babel-core/register test/app.js",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
+    "migrations": "./node_modules/.bin/sequelize --config ./migrations/config.js --migrations-path ./migrations/migrations db:migrate",
+    "new-migration": "./node_modules/.bin/sequelize --config ./migrations/config.js --migrations-path ./migrations/migrations migration:create",
     "nsp": "./node_modules/.bin/nsp check",
     "lint": "./node_modules/eslint/bin/eslint.js \"**/*.js\"",
     "outdated": "npm outdated --depth 0",
@@ -41,7 +43,8 @@
     "pg": "^4.4.6",
     "request": "^2.76.0",
     "rollbar": "^0.6.2",
-    "sequelize": "^3.30.0"
+    "sequelize": "^3.30.0",
+    "sequelize-cli": "^2.5.1"
   },
   "devDependencies": {
     "babel": "6.3.13",
